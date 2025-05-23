@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Curso</title>
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/navegacao.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <a href="lista-aluno.html">ALUNOS</a>
+            <a href="lista-curso.html">CURSOS</a>
+            <a href="lista-matricula.html">MATRICULAS</a>
+        </nav>
+    </header>
+    <h1>ATUALIZAR CURSO</h1>
+    <div class="container-formulario">
+        <form action="">
+            <input type="number" name="input-id-curso" disabled hidden>
+            <label>
+                Nome Curso
+                <br>
+                <input type="text" name="input-nome-curso" placeholder="Insira o nome do Curso" required>
+            </label>
+            <label>
+                Area do Curso
+                <br>
+                <input type="text" name="area" placeholder="Insira a duração do Curso">
+            </label>
+            
+            <label>
+                Carga Horaria
+                <br>
+                <input type="text" name="input-cargaHoraria-curso" placeholder="Insira a Carga Horaria do curso">
+            </label>
+
+            <input type="button" value="ATUALIZAR" onclick="atualizaFormulario()">
+        </form>
+    </div>
+    <script src="js/atualizarCurso.js"></script>
+</body>
+
+</html>

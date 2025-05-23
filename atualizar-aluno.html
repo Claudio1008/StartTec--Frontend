@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Aluno</title>
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/navegacao.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <a href="lista-aluno.html">ALUNOS</a>
+            <a href="lista-curso.html">CURSOS</a>
+            <a href="lista-matricula.html">MATRICULAS</a>
+        </nav>
+    </header>
+    <h1>ATUALIZAR ALUNO</h1>
+    <div class="container-formulario">
+        <form action="">
+            <input type="number" name="input-id-aluno" disabled hidden>
+            <label>
+                Nome Completo
+                <br>
+                <input type="text" name="input-nome-aluno" placeholder="Insira o nome do aluno" required>
+            </label>
+            <label>
+                Cpf
+                <br>
+                <input type="number" name="cpf" placeholder="Insira o CPF do aluno">
+            </label>
+            <label>
+                Email
+                <br>
+                <input type="text" name="input-email-aluno" placeholder="Insira o email do aluno" required>
+            </label>
+            <label>
+                Celular
+                <br>
+                <input type="number" name="input-celular-aluno" placeholder="Insira o telefone do aluno">
+            </label>
+
+            <input type="button" value="ATUALIZAR" onclick="atualizaFormulario()">
+        </form>
+    </div>
+    <script src="js/atualizarAluno.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Curso</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/navegacao.css">
+    <link rel="stylesheet" href="css/cadastro-livro.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <a href="lista-aluno.html">ALUNOS</a>
+            <a href="lista-curso.html">CURSOS</a>
+            <a href="lista-matricula.html">MATRICULAS</a>
+        </nav>
+    </header>
+    <h1>CADASTRO CURSO</h1>
+    <div class="container-formulario">
+        <form action="">
+            <div class="diresq">
+                <div class="esquerda">
+                    <label for="nomeCurso" class="nomeCurso">
+                        Nome Curso
+                        <br>
+                        <input type="text" name="input-nome-curso" placeholder="Insira o nome do curso" required>
+                    </label>
+                    <label for="duracaoCurso">
+                        Area do Curso
+                        <br>
+                        <input type="text" name="input-area_curso" placeholder="Insira a area do curso" required>
+                    </label>
+                    <label for="categorizacao">
+                        Carga Horaria
+                        <br>
+                        <input type="text" name="input-cargaHoraria-curso" placeholder="Insira a carga horaria do curso" required>
+                    </label>
+                </div>
+            </div>
+
+            <input type="button" value="CADASTRAR" onclick="enviaFormulario()">
+        </form>
+    </div>
+    <script src="js/curso.js"></script>
+</body>
+
+</html>

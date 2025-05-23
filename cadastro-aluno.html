@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Aluno</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/navegacao.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <a href="lista-aluno.html">ALUNOS</a>
+            <a href="lista-curso.html">CURSOS</a>
+            <a href="lista-matricula.html">MATRICULAS</a>
+        </nav>
+    </header>
+    <h1>CADASTRO DE ALUNO</h1>
+    <div class="container-formulario">
+        <form action="">
+            <div class="diresq">
+                <div class="esquerda">
+                    <label for="nome">
+                        Nome
+                        <br>
+                        <input type="text" name="input-nome-aluno" placeholder="Insira o nome" required>
+                    </label>
+                    <label for="sobrenome">
+                        Sobrenome
+                        <br>
+                        <input type="text" name="input-sobrenome-aluno" placeholder="Insira o sobrenome" required>
+                    </label>
+                    <label for="data-nascimento">
+                        Data de nascimento
+                        <br>
+                        <input type="date" name="input-data-nascimento" placeholder="Insira a data de nascimento" required>
+                    </label>
+                </div>
+                <div class="direita">
+                    <label for="endereco">
+                        Endereço
+                        <br>
+                        <input type="text" name="input-endereco-aluno" placeholder="Insira o endereço" required>
+                    </label>
+                    <label for="email">
+                        Email
+                        <br>
+                        <input type="text" name="input-email-aluno" placeholder="Insira o email" required>
+                    </label>
+                    <label for="celular">
+                        Celular
+                        <br>
+                        <input type="number" name="input-celular-aluno" placeholder="Insira o celular" required>
+                    </label>
+                </div>
+            </div>
+
+            <input type="button" value="CADASTRAR" onclick="enviaFormulario()">
+        </form>
+    </div>
+    <script src="js/aluno.js"></script>
+</body>
+
+</html>

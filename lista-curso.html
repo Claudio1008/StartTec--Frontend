@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/navegacao.css">
+    <link rel="stylesheet" href="css/listagem.css">
+</head>
+<body onload="recuperarListaCursos()">
+    <header>
+        <nav>
+
+            <a href="lista-aluno.html">ALUNOS</a>
+            <a href="lista-curso.html">CURSOS</a>
+            <a href="lista-matricula.html">MATRICULAS</a>
+        </nav>
+    </header>
+    <div class="painel">
+        <div class="esquerda">
+            <div>
+                <a href="/cadastro-curso.html">NOVO CURSO</a>
+            </div>
+        </div>
+        <div class="meio">
+            <h1>CURSOS</h1>
+        </div>
+        <div class="direita"></div>
+    </div>
+    <div class="container-tabela">
+        <table id="">
+            <thead>
+                <tr>
+                    <th>ID CURSOS</th>
+                    <th>NOME DO CURSO</th>
+                    <th>AREA DO CURSO</th>
+                    <th>CARGA HORARIA</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody id="corpoCurso">
+                
+            </tbody>
+        </table>
+    </div>
+    <script src="js/curso.js"></script>
+</body>
+</html>

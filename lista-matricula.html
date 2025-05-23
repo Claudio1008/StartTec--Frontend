@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriculas</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/navegacao.css">
+    <link rel="stylesheet" href="css/listagem.css">
+</head>
+<body onload="recuperarListaMatriculas()">
+    <header>
+        <nav>
+
+            <a href="lista-aluno.html">ALUNOS</a>
+            <a href="lista-curso.html">CURSOS</a>
+            <a href="lista-matricula.html">MATRICULAS</a>
+        </nav>
+    </header>
+    <div class="painel">
+        <div class="esquerda">
+            <div>
+                <a href="/cadastro-matricula.html">NOVA MATRICULA</a>
+            </div>
+        </div>
+        <div class="meio">
+            <h1>MATRICULAS</h1>
+        </div>
+        <div class="direita"></div>
+    </div>
+    <div class="container-tabela">
+        <table id="">
+            <thead>
+                <tr>
+                    <th>ID MATRICULA</th>
+                    <th>NOME ALUNO</th>
+                    <th>CURSO</th>
+                    <th>DATA MATRICULA</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody id="corpoMatricula">
+                
+            </tbody>
+        </table>
+    </div>
+    <script src="js/matricula.js"></script>
+</body>
+</html>

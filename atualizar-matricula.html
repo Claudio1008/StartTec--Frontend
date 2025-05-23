@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Matricula</title>
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/navegacao.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <a href="lista-aluno.html">ALUNOS</a>
+            <a href="lista-curso.html">CURSOS</a>
+            <a href="lista-matricula.html">MATRICULAS</a>
+        </nav>
+    </header>
+    <h1>ATUALIZAR MATRICULA</h1>
+    <div class="container-formulario">
+        <form action="">
+            <input type="number" name="input-id-matricula" disabled hidden>
+            <label>
+                ID DO ALUNO
+                <br>
+                <input type="number" name="input-id-aluno" placeholder="Insira o id do aluno" required>
+            </label>
+            <label>
+                ID DO CURSO
+                <br>
+                <input  type="number" name="input-id-curso" placeholder="Insira o id do curso" required>
+            </label>
+            
+            <label>
+                DATA DA MATRICULA
+                <br>
+                <input type="date" name="input-data-matricula" placeholder="Insira a data de matricula" required>
+            </label>
+
+            <input type="button" value="ATUALIZAR" onclick="atualizaFormulario()">
+        </form>
+    </div>
+    <script src="js/atualizarMatricula.js"></script>
+</body>
+
+</html>
