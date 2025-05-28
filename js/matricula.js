@@ -9,7 +9,7 @@ async function enviaFormulario() {
 
     console.log(matriculaDTO)
     try {
-        const respostaServidor = await fetch("http://localhost:3333/nova/matricula", {
+        const respostaServidor = await fetch("http://localhost:3333/novo/matricula", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -133,3 +133,37 @@ async function criarTabelaMatriculas(matriculas) {
         }
     }
 }
+
+async function atualizarMatricula() {
+    const matriculaDTO = {
+        "idAluno": Number(document.getElementById("input-idAluno").value),
+        "idCurso": Number(document.getElementById("input-idCurso").value),
+        "dataMatricula": document.getElementById("input-dataMatricula").value
+    };
+
+    const confirmacaoUsuario = confirm("Deseja realmente atualizar a matricula?");
+    if (!confirmacaoUsuario) return false;
+
+    try {
+        const respostaServidor = await fetch(`http://localhost:3333/atualizar/matricula/${matriculaDTO.idMatricula}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(alunoDTO)
+        });
+
+        if (respostaServidor.ok) {
+            alert("matricula atualizado com sucesso!");
+            window.location.href = "lista-matricula.html";
+            return true;
+        } else {
+            alert("Erro ao atualizar a matricula.");
+            return false;
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Erro ao tentar atualizar a matricula.");
+        return false;
+    }
+}    

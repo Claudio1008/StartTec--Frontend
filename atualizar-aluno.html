@@ -13,41 +13,60 @@
 <body>
     <header>
         <nav>
-
             <a href="lista-aluno.html">ALUNOS</a>
             <a href="lista-curso.html">CURSOS</a>
             <a href="lista-matricula.html">MATRICULAS</a>
         </nav>
     </header>
+
     <h1>ATUALIZAR ALUNO</h1>
+
     <div class="container-formulario">
         <form action="">
-            <input type="number" name="input-id-aluno" disabled hidden>
+            <input type="number" id="input-idAluno" name="input-id-aluno" hidden>
+
             <label>
                 Nome Completo
                 <br>
-                <input type="text" name="input-nome-aluno" placeholder="Insira o nome do aluno" required>
+                <input type="text" id="input-nomeInteiro" name="input-nome-aluno" placeholder="Insira o nome do aluno" required>
             </label>
+
             <label>
                 Cpf
                 <br>
-                <input type="number" name="cpf" placeholder="Insira o CPF do aluno">
+                <input type="text" id="input-cpf" name="input-cpf-aluno" placeholder="Insira o CPF do aluno">
             </label>
+
             <label>
                 Email
                 <br>
-                <input type="text" name="input-email-aluno" placeholder="Insira o email do aluno" required>
+                <input type="text" id="input-email" name="input-email-aluno" placeholder="Insira o email do aluno" required>
             </label>
+
             <label>
                 Celular
                 <br>
-                <input type="number" name="input-celular-aluno" placeholder="Insira o telefone do aluno">
+                <input type="number" id="input-celular" name="input-celular-aluno" placeholder="Insira o telefone do aluno">
             </label>
 
-            <input type="button" value="ATUALIZAR" onclick="atualizaFormulario()">
+            <input type="button" value="ATUALIZAR" onclick="atualizarAluno()">
         </form>
     </div>
-    <script src="js/atualizarAluno.js"></script>
+
+    <script src="js/aluno.js"></script>
+    <script>
+        // Preenche os campos com os dados da URL
+        window.onload = () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has("idAluno")) {
+                document.getElementById("input-idAluno").value = params.get("idAluno");
+                document.getElementById("input-nomeInteiro").value = params.get("nomeInteiro");
+                document.getElementById("input-cpf").value = params.get("cpf");
+                document.getElementById("input-email").value = params.get("email");
+                document.getElementById("input-celular").value = params.get("celular");
+            }
+        };
+    </script>
 </body>
 
 </html>

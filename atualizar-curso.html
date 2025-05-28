@@ -22,28 +22,40 @@
     <h1>ATUALIZAR CURSO</h1>
     <div class="container-formulario">
         <form action="">
-            <input type="number" name="input-id-curso" disabled hidden>
+            <input type="number" id="input-idCurso" name="input-id-curso" disabled hidden>
             <label>
                 Nome Curso
                 <br>
-                <input type="text" name="input-nome-curso" placeholder="Insira o nome do Curso" required>
+                <input type="text" id="input-nome" name="input-nome-curso" placeholder="Insira o nome do Curso" required>
             </label>
             <label>
                 Area do Curso
                 <br>
-                <input type="text" name="area" placeholder="Insira a duração do Curso">
+                <input type="text" id="input-area" name="input-area-curso" placeholder="Insira a duração do Curso" required>
             </label>
             
             <label>
                 Carga Horaria
                 <br>
-                <input type="text" name="input-cargaHoraria-curso" placeholder="Insira a Carga Horaria do curso">
+                <input type="number" id="input-cargaHoraria" name="input-cargaHoraria-curso" placeholder="Insira a Carga Horaria do curso">
             </label>
 
-            <input type="button" value="ATUALIZAR" onclick="atualizaFormulario()">
+            <input type="button" value="ATUALIZAR" onclick="atualizarCurso()">
         </form>
     </div>
-    <script src="js/atualizarCurso.js"></script>
+    <script src="js/curso.js"></script>
+    <script>
+
+        window.onload = () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has("idCurso")) {
+                document.getElementById("input-idCurso").value = params.get("idCurso");
+                document.getElementById("input-nome").value = params.get("nome");
+                document.getElementById("input-area").value = params.get("area");
+                document.getElementById("input-cargaHoraria").value = params.get("cargaHoraria");
+            }
+        };
+    </script>
 </body>
 
 </html>

@@ -1,11 +1,10 @@
 
 async function enviaFormulario() {
-    // recuperar as informações do formulário e colocar em objeto JSON
     const cursoDTO = {
-        "nome": document.querySelectorAll("input")[0].value,
-        "area": document.querySelectorAll("input")[1].value,
-        "cargaHoraria": document.querySelectorAll("input")[2].value
-    }
+        "nome": document.getElementById("input-nome").value,
+        "area": document.getElementById("input-area").value,
+        "cargaHoraria": Number(document.getElementById("input-cargaHoraria").value)
+    };
 
     console.log(cursoDTO)
 
@@ -17,11 +16,11 @@ async function enviaFormulario() {
             },
             body: JSON.stringify(cursoDTO)
         });
-    
-        if(!respostaServidor.ok) {
+
+        if (!respostaServidor.ok) {
             throw new Error("Erro ao enviar os dados para o servidor. Contate o administrador do sistema");
         }
-    
+
         alert("Curso cadastrado com sucesso!");
     } catch (error) {
         console.log(error);
@@ -53,8 +52,8 @@ async function criarTabelaCursos(cursos) {
         // Cria uma nova linha da tabela
         const linha = document.createElement('tr');
         // Cria e preenche cada célula da linha
-        const id = document.createElement('td');
-        id.textContent = curso.idCurso; // Preenche com o id do curso
+        const idCurso = document.createElement('td');
+        idCurso.textContent = curso.idCurso; // Preenche com o id do curso
 
         const nome = document.createElement('td');
         nome.textContent = curso.nome; // Preenche com o nome do curso
@@ -78,29 +77,29 @@ async function criarTabelaCursos(cursos) {
                 cargaHoraria: curso.cargaHoraria,
                 idCurso: curso.idCurso
             };
-        
+
             // Converter para parâmetros de URL
             const queryParams = new URLSearchParams(dadosParaEnviar).toString();
-        
+
             // Redirecionar com os dados na URL
             window.location.href = `atualizar-curso.html?${queryParams}`;
         });
 
         const iconExcluir = document.createElement('img');
-        iconExcluir.addEventListener("click", () => excluirCurso(curso.idCurso)); 
-        iconExcluir.src = 'assets/icons/trash-fill.svg'; 
-        iconExcluir.alt = 'Ícone de excluir'; 
+        iconExcluir.addEventListener("click", () => excluirCurso(curso.idCurso));
+        iconExcluir.src = 'assets/icons/trash-fill.svg';
+        iconExcluir.alt = 'Ícone de excluir';
 
         //chamando
-        linha.appendChild(id);
+        linha.appendChild(idCurso);
         linha.appendChild(nome);
         linha.appendChild(area);
         linha.appendChild(cargaHoraria);
-        tdAcoes.appendChild(iconAtualizar); 
-        linha.appendChild(tdAcoes); 
-        tdAcoes.appendChild(iconExcluir); 
+        tdAcoes.appendChild(iconAtualizar);
+        linha.appendChild(tdAcoes);
+        tdAcoes.appendChild(iconExcluir);
 
-       
+
         tabela.appendChild(linha);
 
     });
@@ -109,16 +108,16 @@ async function criarTabelaCursos(cursos) {
         const cursoDTO = {
             statusCurso: false
         };
-    
+
         try {
-            const response = await fetch(`http://localhost:3333/delete/curso?idCurso=${idCurso}`, {
+            const response = await fetch(`http://localhost:3333/delete/curso/${idCurso}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(cursoDTO)
             });
-    
+
             if (response.ok) {
                 alert('Curso removido com sucesso');
                 window.location.reload();
@@ -130,5 +129,40 @@ async function criarTabelaCursos(cursos) {
             console.error('Erro na requisição:', error);
             alert('Erro ao tentar excluir o curso.');
         }
+    }
+}
+
+async function atualizarCurso() {
+    const cursoDTO = {
+        "idCurso": document.getElementById("input-idCurso").value,
+        "nome": document.getElementById("input-nome").value,
+        "area": document.getElementById("input-area").value,
+        "cargaHoraria": Number(document.getElementById("input-cargaHoraria").value)
+    };
+
+    const confirmacaoUsuario = confirm("Deseja realmente atualizar o curso?");
+    if (!confirmacaoUsuario) return false;
+
+    try {
+        const respostaServidor = await fetch(`http://localhost:3333/atualizar/curso/${cursoDTO.idCurso}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cursoDTO)
+        });
+
+        if (respostaServidor.ok) {
+            alert("Curso atualizado com sucesso!");
+            window.location.href = "lista-curso.html";
+            return true;
+        } else {
+            alert("Erro ao atualizar curso.");
+            return false;
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Erro ao tentar atualizar o curso.");
+        return false;
     }
 }

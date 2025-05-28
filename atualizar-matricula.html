@@ -22,28 +22,39 @@
     <h1>ATUALIZAR MATRICULA</h1>
     <div class="container-formulario">
         <form action="">
-            <input type="number" name="input-id-matricula" disabled hidden>
+            <input type="number" id="input-idMatricula" name="input-id-matricula" disabled hidden>
             <label>
                 ID DO ALUNO
                 <br>
-                <input type="number" name="input-id-aluno" placeholder="Insira o id do aluno" required>
+                <input type="number" id="input-idAluno" name="input-id-aluno" placeholder="Insira o id do aluno" required>
             </label>
             <label>
                 ID DO CURSO
                 <br>
-                <input  type="number" name="input-id-curso" placeholder="Insira o id do curso" required>
+                <input  type="number" id="input-idCurso" name="input-id-curso" placeholder="Insira o id do curso" required>
             </label>
             
             <label>
                 DATA DA MATRICULA
                 <br>
-                <input type="date" name="input-data-matricula" placeholder="Insira a data de matricula" required>
+                <input type="date" id="input-dataMatricula" name="input-data-matricula" placeholder="Insira a data de matricula" required>
             </label>
 
-            <input type="button" value="ATUALIZAR" onclick="atualizaFormulario()">
+            <input type="button" value="ATUALIZAR" onclick="atualizaMatricula()">
         </form>
     </div>
-    <script src="js/atualizarMatricula.js"></script>
+    <script src="js/matricula.js"></script>
+    <script>
+
+        window.onload = () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has("idMatricula")) {
+                document.getElementById("input-idAluno").value = params.get("idAluno");
+                document.getElementById("input-idCurso").value = params.get("idCurso");
+                document.getElementById("input-dataMatricula").value = params.get("dataMatricula");
+            }
+        };
+    </script>
 </body>
 
 </html>
