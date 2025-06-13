@@ -1,56 +1,74 @@
 :root {
-    --cabecalho: #5B5B5B;
-    --linhas: #363636;
-    --bordas: #EFEFEF;
+    --cabecalho: #4a4a4a;
+    --linhas: #2e2e2e;
+    --bordas: #dcdcdc;
+    --hover: #f0f0f0;
+    --texto-hover: #1f1f1f;
 }
 
 table {
-    width: 80%;
-    margin: auto auto;
-    margin-top: 2%;
-}
-
-table tr:hover {
-    background-color: var(--bordas);
-    color: var(--linhas);
-}
-
-table tr:hover img {
-    filter: brightness(1.2);
-    transition: transform 0.3s, filter 0.3s;
-}
-
-table tr:hover td {
-    border-color: var(--linhas);
+    width: 90%;
+    margin: 2% auto;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 table th {
     background-color: var(--cabecalho);
-    color: white;
+    color: #ffffff;
     height: 3rem;
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0.5rem;
 }
 
 table tr {
     background-color: var(--linhas);
     color: white;
     height: 2.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+table tr:hover {
+    background-color: var(--hover);
+    color: var(--texto-hover);
+}
+
+table tr:hover td {
+    border-color: #bbbbbb;
 }
 
 th, td {
     border: 1px solid var(--bordas);
     text-align: center;
+    padding: 0.5rem;
 }
 
 td img {
-    filter: invert(0.9);
-    width: 15%;
-    margin: 0.4rem;
+    filter: grayscale(80%) brightness(0.95);
+    width: 22px;
+    height: 22px;
+    margin: 0.3rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 td img:hover {
-    filter: invert(0);
-    width: 15%;
-    margin: 0.4rem;
+    filter: grayscale(0%) brightness(1.1);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    td img {
+        width: 18px;
+        height: 18px;
+    }
 }
